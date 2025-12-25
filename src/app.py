@@ -4,7 +4,7 @@ import os
 import pickle
 import numpy as np
 
-from src.utils import load_tokenizer  # Make sure utils.py is in src/ folder
+from utils import load_tokenizer 
 
 # Page config
 st.set_page_config(page_title="Sequential Recipe Step Analyzer", page_icon="🍳", layout="centered")
