@@ -2,7 +2,7 @@ import streamlit as st
 import tensorflow as tf
 from src.utils import load_tokenizer
 import numpy as np
-
+import os
 # Page configuration
 st.set_page_config(
     page_title="Sequential Recipe Step Analyzer 🍳",
@@ -39,12 +39,17 @@ def predict_next_ingredient(model, tokenizer, input_text, top_k=5):
 
 # Cache model and tokenizer
 @st.cache_resource
+
+
 def load_resources():
-    tokenizer = load_tokenizer(path="models/tokenizer.pkl")
-    model = tf.keras.models.load_model("outputs/models/ingredient_gru_model")
+    tokenizer_path = os.path.join("models", "tokenizer.pkl")
+    tokenizer = load_tokenizer(path=tokenizer_path)
+    
+    model_path = os.path.join("outputs", "models", "ingredient_gru_model")
+    model = tf.keras.models.load_model(model_path)
+    
     return tokenizer, model
 
-tokenizer, model = load_resources()
 
 # Main UI
 st.title("🍳 Sequential Recipe Step Analyzer")
