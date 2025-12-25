@@ -1,5 +1,6 @@
 streamlit==1.24.0
 tensorflow==2.13.0
-numpy
-pandas
-
+numpy==1.25.2
+pandas==2.1.1
+protobuf==3.20.3
+scikit-learn==1.3.0
