@@ -1,0 +1,4 @@
+# Ignore models and outputs
+models/
+outputs/
+data/
